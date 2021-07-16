@@ -1,0 +1,14 @@
+{
+    "development":{
+        "PORT":3000,
+        "MONGODB_URI":"mongodb://localhost:27017/facebookLogin",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2hr"
+    },
+    "production":{
+        "PORT":3000,
+        "MONGODB_URI":"mongodb://database:27017/mean-docker",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "2hr"
+    }
+}
