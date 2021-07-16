@@ -1,0 +1,55 @@
+<div>
+  <form class="middile" align="center" #login="ngForm" (submit)="loggin(login)">
+    <div class="row" style="margin-top: 30px; margin-left: 30px">
+      <div class="input-field col-10">
+        <label
+          class="active"
+          for="name"
+          style="font-size: large; font-weight: bold; margin-left: 11px"
+          >Email</label
+        >
+        <input
+          placeholder="eg: example@gmail.com"
+          id="name"
+          type="text"
+          required
+          name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          #name="ngModel"
+          [(ngModel)]="email"
+        />
+      </div>
+    </div>
+    <div class="row" style="margin-left: 30px">
+      <div class="input-field col-10">
+        <input
+          id="position"
+          placeholder="Password"
+          type="password"
+          required
+          minlength="6"
+          name="password"
+          #position="ngModel"
+          [(ngModel)]="password"
+        />
+        <label
+          class="active"
+          for="position"
+          style="font-size: large; font-weight: bold; margin-left: 11px"
+          >Password</label
+        >
+      </div>
+    </div>
+    <div class="input-field col s12">
+      <button
+        class="btn btn-success center"
+        style="width: 50%"
+        type="submit"
+        [disabled]="login.invalid"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>
+  <button type="button" (click)="loginWithFacebook()" class="btn btn-primary btn-block">Sign in with Facebook</button>

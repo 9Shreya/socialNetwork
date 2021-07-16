@@ -1,0 +1,37 @@
+ <div class="row" >
+<div *ngFor="let post of mainvalue;let inex= index" class="col-md-10 ">
+
+<div class=" post-card col-md-12" *ngIf="post._id!==coustomerArray._id">
+
+                  <!-- (click)="goToProfile(feed.users)"" -->
+                  <div class="user-icon col-md-1 p-0">
+                    <img src={{post.image}} onError="this.src='/assets/download.png'" class="user-icon" alt="" />
+                  </div>
+                  <div class="col-md-7  ml-3" align='left'>
+                    <p class="username">
+                      {{ post.name|titlecase}}
+
+                    </p>
+                  <p  style="font-size: 12px;color: rgb(155, 153, 153);margin-top: -15px;">{{post.post.length}} posts</p>
+
+                  </div>
+                  <div class="col-md-2" *ngIf="post.followButton==false" >
+                    <button class="followButton" (click)="follower(post._id)">  Follow</button>
+                  </div>
+                  <div class="col-md-2" *ngIf="post.followButton==true" >
+                    <button class="followButton" (click)="Unfollower(post._id)">  Unfollow</button>
+                  </div>
+
+                  <!-- [class.high]="i == selectedRow" -->
+
+
+                  <div *ngFor="let img of post.image">
+                    <img src={{img}} alt="" width="100px" height="100px" style="padding: 10px;">
+                  </div>
+
+
+
+                </div></div>
+
+
+              </div>

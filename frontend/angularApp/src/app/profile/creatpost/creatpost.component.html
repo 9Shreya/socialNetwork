@@ -1,0 +1,46 @@
+ <div class=" container col-12 col-md-12 ">
+        <p class="page-heading" style="text-indent: 15px;">World is waiting to hear from you!</p>
+
+
+      <div class="col-12 col-md-12">
+        <div class="post-box">
+
+          <div class="row post-box-modal">
+            <div class="row">
+              <div class="col-12 col-md-12 " style="display: flex;flex-wrap: wrap;">
+                <div class="image-preview-inside" *ngFor="let url of urls; let i = index">
+                  <img *ngIf="type == 'image'" [src]="url" class="rounded mb-3" width="180" />
+                  <button type="button" class="remove-img" (click)="removeImage(i)">
+                    &times;
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12">
+              <textarea name="" [(ngModel)]="postContent" style="height: 170px;" ></textarea>
+              <input #image type="file" accept="image/*" style="visibility: hidden;" multiple
+                (change)="detectFiles($event)" />
+            </div>
+          </div>
+          <div class="col-12 col-md-12 text-right">
+            <!-- <span style="width: 100%; margin: 10px;">({{ postContent.length }}/3000)</span> -->
+          </div>
+          <div class="col-12 col-md-12" >
+            <div class="row bt-2">
+              <div class="col-12 col-md-12">
+                <button class="photo-btn" (click)="image.click()" (click)="checkType('image')">
+                  <img src="assets/profile/img-icon.png" />
+                  PHOTO
+                </button>
+                <!-- <button class="publish-btn" [disabled]="disables" (click)="creatPost()">PUBLISH</button> -->
+                <button class="publish-btn" (click)="creatPost();">
+                  PUBLISH
+                </button>
+              </div>
+
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+ </div>

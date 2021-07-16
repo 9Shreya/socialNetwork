@@ -1,0 +1,84 @@
+<div>
+  <form class="middile" align="center" #login="ngForm" (submit)="loggin(login)">
+    <div class="row" style="margin-top: 30px; margin-left: 30px">
+      <div class="input-field col-10">
+        <label
+          class="active"
+          for="name"
+          style="font-size: large; font-weight: bold; margin-left: 11px"
+          >Full Name</label
+        >
+        <input
+          placeholder="Enter Full Name"
+          id="fullName"
+          type="text"
+          required
+          name="fullName"
+          #fullNam="ngModel"
+          [(ngModel)]="fullName"
+        />
+      </div>
+    </div>
+    <div class="row" style="margin-top: 30px; margin-left: 30px">
+      <div class="input-field col-10">
+        <label
+          class="active"
+          for="name"
+          style="font-size: large; font-weight: bold; margin-left: 11px"
+          >Email</label
+        >
+        <input
+          placeholder="eg: example@gmail.com"
+          id="name"
+          type="text"
+          required
+          name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          #name="ngModel"
+          [(ngModel)]="email"
+        />
+      </div>
+    </div>
+    <div class="row" style="margin-left: 30px">
+      <div class="input-field col-10">
+        <input
+          id="position"
+          placeholder="Password"
+          type="password"
+          required
+          minlength="6"
+          name="password"
+          #position="ngModel"
+          [(ngModel)]="password"
+        />
+        <label
+          class="active"
+          for="position"
+          style="font-size: large; font-weight: bold; margin-left: 11px"
+          >Password</label
+        >
+      </div>
+    </div>
+    <!-- <div class="row" style="margin-left: 30px;">
+    <div class="input-field col s10">
+      <input id='cnpass' placeholder="Confirm Password" type="password" required minlength="6" name="confirmPassword" #confirmPassword='ngModel' [(ngModel)]='confirmPassword'> -->
+    <!-- <label class="active" for='cnpass' style="font-size: large;font-weight: bold;"> Confirm Password</label> -->
+    <!-- <div *ngIf="confirmPassword!=password">
+ Confirm Password does not match
+</div> -->
+    <!-- </div>
+  </div> -->
+    <div class="input-field col s12">
+      <button
+        class="btn btn-custom center"
+        style="width: 50%"
+        type="submit"
+        [disabled]="login.invalid"
+      >
+        SignUp
+      </button>
+    </div>
+  </form>
+</div>
+
+

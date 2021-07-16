@@ -1,0 +1,105 @@
+.profileContent {
+  background-image: linear-gradient(rgb(136, 133, 133), rgb(12, 12, 12));
+}
+.imageProflie {
+  height: 400px;
+}
+.cardForPost {
+  height: 70px;
+  margin: 80px auto 20px 0px;
+
+  width: 100px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 12px 5px 5px 5px ;
+  background: rgb(133, 130, 130);
+  color: white;
+}
+.fa-camera {
+  display: none;
+  cursor: pointer;
+}
+.divcam{
+   display: none;
+  background-color: white;border-radius: 50%;
+height: 40px;
+width: 40px;
+                position: absolute;
+                    top: 42%;
+    left:43%;
+}
+.imageDisp:hover .fa-camera,.imageDisp:hover .divcam{
+  display: block;
+}
+// .imageDisp{
+//   margin-left: 100px;
+// }
+
+.textName{
+  color: white;font-size: 30px;margin-top:70px;text-align: left;
+}
+@media(max-width:760px){
+      .cardForPost{
+    margin:10px auto;
+
+}
+.divcam{
+  left: 47%;
+}
+.textName{
+  margin-top:auto;
+text-align: center;
+}
+}
+.active2 {
+  color: #3d3d3d !important;
+  border-bottom: 3px solid #000 !important;
+}
+.tab-btn {
+
+  line-height: 18px;
+  text-align: center;
+  color: rgba(61, 61, 61, 0.5);
+  padding: 12px 70px;
+  background: transparent;
+  border: 1px solid transparent;
+  // font-family: "Noto Sans";
+}
+.tab-btn:focus,
+.tab-btn:active {
+  outline: 0;
+}
+.createPost-button {
+  width: 180px;
+  height: 45px;
+  border: 1px solid #f8991f;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: white;
+  color: #f8991f;
+  font-weight: bold;
+}
+.post-card{
+  background: #fff;
+    border: 1px solid #edefef;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px 30px 15px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+.user-icon{
+    height: 40px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;}
+
+
+
+    .right-box{float: right;
+    position: relative;
+    width: calc(50% - 42px)!important;
+    text-align: right;
+  background: #fff;
+    border: none;}

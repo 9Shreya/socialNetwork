@@ -1,0 +1,245 @@
+<nav class="navbar navbar-light bg-light">
+  <!-- <a class="navbar-brand" href="#">
+    <img
+      src="/docs/4.0/assets/brand/bootstrap-solid.svg"
+      width="30"
+      height="30"
+      class="d-inline-block align-top"
+      alt=""
+    />
+    Bootstrap
+  </a> -->
+  <div class="col-md-10"
+    style="
+      text-transform: capitalize;
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(124, 121, 121);
+    "
+    >Web App</div
+  >
+
+  <div class="dropdown col-md-1">
+    <a
+      style="color: rgb(85, 82, 82)"
+      class="dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      <i
+        class="fa fa-cog"
+        aria-hidden="true"
+        style="color: rgb(117, 116, 116)"
+      ></i>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item">My Profile</a>
+      <a class="dropdown-item" (click)="logout()"> Logout </a>
+    </div>
+  </div>
+  <div></div>
+</nav>
+<div class="profileContent">
+  <div class="row">
+    <div class="col-md-7" style="display: flex;flex-wrap: wrap;">
+      <div class="col-md-5  center" >
+        <input
+          id="file-input"
+          required
+          mat-button
+          style="display: none"
+          type="file"
+          name="img"
+          (change)="onSelectimg($event)"
+          [(ngModel)]="image"
+          class="form-control-file"
+        />
+        <label for="file-input">
+          <div class="imageDisp ">
+            <img
+              style="border-radius: 50%; margin: 20px 0 10px 0;    width: 220px;
+    height: 220px;"
+              src="{{ coustomerArray.image }}"
+              onError="this.src='/assets/download.png'"
+              width="100%"
+              height="100%"
+              alt=""
+            />
+           <div class="divcam"
+              > <i
+              class="fas fa-camera"
+              style="
+                color: black;
+                font-size: 25px;
+                    position: relative;
+    top: 7px;
+
+              "
+            ></i></div>
+          </div>
+        </label>
+        <!-- <div class="col-sm-3 imagecol">
+          <input
+            id="file-input"
+            #photo="ngModel"
+            required
+            mat-button
+            style="display: none"
+            type="file"
+            name="img"
+            (change)="onSelectFile($event)"
+            [(ngModel)]="image"
+            class="form-control-file"
+          />
+          <label for="file-input">
+            <div class="imgphoto">
+              <div *ngIf="image !== null">
+                <img
+                  [src]="image"
+                  height="120px"
+                  width="120px"
+                  alt=""
+                  preview
+                  style="float: right; border-radius: 5px"
+                />
+              </div>
+              <p *ngIf="image == null" style="padding: 34px">
+                Image of employee
+              </p>
+            </div>
+          </label>
+        </div> -->
+        <!-- <img src="" alt="" /> -->
+      </div>
+      <div class="col-md-6 p-0 textName" >Hi, {{ coustomerArray.name | titlecase }}</div>
+    </div>
+    <div class="col-md-5 flex-wrap  ">
+      <div class="row center">
+
+      <div class=" cardForPost">
+        <div>{{coustomerArray.post.length}}</div>
+        <div>Post</div>
+      </div>
+      <div class=" cardForPost">
+        <div>0</div>
+        <div>Followers</div>
+      </div>
+       <div class=" cardForPost" >
+        <div>0</div>
+        <div>Following</div>
+      </div>
+      <div class=" cardForPost" >
+        <div>0</div>
+        <div>Archive</div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+          <div class="col-md-12" style="  border-bottom: 1px solid rgb(61, 61, 61, 0.1);
+">
+              <button class="tab-btn grey-text m-auto" *ngFor="let menu of menues; let i = index" (click)="setClickedMenu(i)"
+                [class.active2]="i == selectedMenu">
+                {{ menu.name }}
+              </button>
+</div>
+</div>
+ </div>
+
+ <div  *ngIf="selectedMenu==0" style="background-color: white;text-align:center ;padding-bottom: 10%;" >
+
+ <div *ngIf="coustomerArray.post.length==0">
+  <img width="50%" src="/assets/profile/feed_nothing_to_show.svg" alt="">
+  <br>
+  <p style="font-size:25px;color:rgb(172, 170, 170)">You haven't posted anything</p><br>
+ </div>
+
+
+ <div class="row" *ngIf="coustomerArray.post.length>0">
+<div *ngFor="let post of coustomerArray.post;let inex= index" class="col-md-8 ml-5">
+
+<div class=" post-card col-md-12">
+
+                  <!-- (click)="goToProfile(feed.users)"" -->
+                  <div class="user-icon col-md-1">
+                    <img src={{coustomerArray.image}} onError="this.src='/assets/download.png'" class="user-icon" alt="" />
+                  </div>
+                  <div class="col-md-10 mt-2" align='left'>
+                    <p class="username">
+                      {{ coustomerArray.name|titlecase}}
+
+                    </p>
+
+                  </div>
+                  <!-- [class.high]="i == selectedRow" -->
+                  <div  class="dropdown inl-blk right-box col-md-1 " style="float:right">
+                    <button type="button" data-toggle="dropdown" style="border: none;outline: none;background: white;">
+                      <img src="assets/profile/icon-menu.png" alt="" height="20px" class="icon-menu" />
+                    </button>
+                    <ul class="dropdown-menu short-menu post-right-drop">
+                      <li (click)="deletePost(inex)" class="dropdown-item">
+                        Delete Post
+                      </li>
+                    </ul>
+                  </div>
+<div class="col-12 col-md-12 m-1" align='left'>
+                    <p class="post-text" *ngIf="readmore==false">
+                     {{post.text|slice: 0:400 }} <span *ngIf="post.text.length >400"(click)="readmore=true" style="font-size: 12px;color: blue;">Read More</span>
+                    </p>
+ <p class="post-text" *ngIf="readmore==true">
+                     {{post.text}} <span *ngIf="post.text.length >400"(click)="readmore=false" style="font-size: 12px;color: blue;">Read Less</span>
+                    </p>
+                  </div>
+                  <div *ngFor="let img of post.image">
+                    <img src={{img}} alt="" width="100px" height="100px" style="padding: 10px;">
+                  </div>
+
+
+
+                </div></div>
+
+
+              </div>
+
+
+                <button (click)="selectedMenu=1"
+              class="mt-2p createPost-button fs-13" >
+              CREATE A POST
+            </button>
+ </div>
+
+
+<div *ngIf="selectedMenu==1"  style="background-color: white;padding-bottom: 40px;">
+<app-creatpost (displayMainQue)="displayMainQue($event)" [coustomerArray]=coustomerArray [selectedMenu]=selectedMenu></app-creatpost>
+ </div><div *ngIf="selectedMenu==2" style="background-color: white;text-align: center;padding-bottom: 10%;">
+<img _ngcontent-hsd-c1="" alt="" src="assets/profile/followers_nothing_to_show.svg">
+
+
+<p  style="font-size:25px;color:rgb(172, 170, 170)">Connect with people to start building your community</p>
+ </div>
+ <div *ngIf="selectedMenu==3" style="background-color: white;padding:0 0 10% 10%;">
+
+<div class="row" style="display: flex;">
+  <div class="col-md-6">
+  <img _ngcontent-hsd-c1="" alt="" src="assets/profile/following_nothing_to_show.svg">
+<p  style="font-size:25px;color:rgb(172, 170, 170)">Now you are not following anyone</p>
+</div>
+<div class="col-md-6">
+ <p style="font-size:25px;color:rgb(172, 170, 170)">Follow People</p>
+<p style="color:rgb(172, 170, 170)">Find your people and choose who to follow</p>
+
+<app-follow [coustomerArray]=coustomerArray [selectedMenu]=coustomerArray.followerID  (displayMainQue)="displayMainQueFollow($event)" ></app-follow>
+</div>
+</div>
+
+
+ </div>
+
+ <div *ngIf="selectedMenu==4" style="background-color: white;">
+ </div>

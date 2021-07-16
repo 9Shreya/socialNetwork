@@ -1,0 +1,26 @@
+.post-card{
+  background: #fff;
+    border: 1px solid #edefef;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px 30px 15px 5px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+.user-icon{
+    height: 40px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;}
+
+.followButton {
+  position: relative;
+  width: 105px;
+  height: 30px;
+  border: 1px solid #f8991f;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: orange;
+  background-color: white;
+}
