@@ -1,2 +1,10 @@
-details:{
+{
+  "detail": [
+    {
+      "name": "nomi",
+      "phone": "98653",
+      "email": "lksdmkl;",
+      "id": 14
+    },
+    ]
 }
